@@ -15,7 +15,7 @@ console.log(numbers2);
 
 // unshift : 원소를 배열에 앞에서부터 삽입 
 const numbers3 = [10, 20, 30, 40];
-// 뒤의 원소부터 삽입 및 추출
+// 앞의 원소부터 삽입 및 추출
 numbers3.unshift(5);
 // numbers3.shift(5);
 console.log(numbers3)
