@@ -5,6 +5,7 @@ let text = array.length === 0
   : '배열이 비어있지 않습니다.'
   console.log(text);
 
+  
 // Truthy&Falsy
 // Falsy한 값들
 console.log(!undefined);
