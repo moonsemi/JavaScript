@@ -56,3 +56,5 @@ console.log(divide);
 // 찍히는 값 = 1
 
 console.log(`plus: ${plus}, minus: ${minus}, multiple: ${multiple}, divide: ${divide}`);
+
+
