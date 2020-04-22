@@ -3,7 +3,7 @@ input = form.querySelector("input"),
 greeting = document.querySelector(".js-greeting");
 
 const USER_LS = "currentUser",
-SHOWING_CN = "showing";
+SHOWING_CN = "showing", USER_NAME = "user-name"
 
 function saveName(text){
     localStorage.setItem(USER_LS, text);
@@ -28,7 +28,13 @@ function askForName(){
 function paintGreeting(text){
     form.classList.remove(SHOWING_CN);
     greeting.classList.add(SHOWING_CN);
-    greeting.innerText = `Hello ${text}`;
+    const span01 = document.createElement("span");
+    const span02 = document.createElement("span");
+    span02.classList.add(USER_NAME);
+    span01.innerText = `Hello !`;
+    span02.innerText = `${text}`;
+    greeting.appendChild(span01);
+    greeting.appendChild(span02);
 };
 
 function loadName(){

@@ -20,7 +20,7 @@ function getWeather(lat, lng){
         // 내가 더 추가해보기!
         const skyCondition = json.weather[0].main;
         const nation = json.sys.country;
-        weather.innerText = `${skyCondition} ${temp} @ ${place} in ${nation}`;
+        weather.innerText = `${skyCondition} ${temp} @${place} in ${nation}`;
     });
 }
 

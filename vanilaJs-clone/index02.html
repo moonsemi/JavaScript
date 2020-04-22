@@ -4,21 +4,25 @@
         <meta charset="UTF-8">
         <title>Somthing</title>
         <link rel="stylesheet" href="style.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="js-clock">
-            <h1>00:00</h1>
+        <div class="js-container">
+            <div class="js-clock">
+                <h1>00:00</h1>
+            </div>
+            <form class="js-form form">
+                <input type="text" placeholder="What is your name?"/>
+            </form>
+            <h4 class="js-greeting greeting"></h4>
+            <form class="js-toDoForm">
+                <input type="text" placeholder="Write a to do"/>
+            </form>
+            <ul class="js-toDoList"></ul>
         </div>
-        <form class="js-form form">
-            <input type="text" placeholder="What is your name?"/>
-        </form>
-        <h4 class="js-greeting greeting"></h4>
-        <form class="js-toDoForm">
-            <input type="text" placeholder="Write a to do"/>
-        </form>
-        <ul class="js-toDoList"></ul>
         <span class="js-weather"></span>
-        
+
         <script src="clock.js"></script>
         <script src="gretting.js"></script>
         <script src="todo.js"></script>
