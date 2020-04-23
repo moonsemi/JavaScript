@@ -1,11 +1,15 @@
 const clockContainer = document.querySelector(".js-clock"),
-clockTitle = clockContainer.querySelector("h1");
+dayTitle = clockContainer.querySelector("h1"),
+clockTitle = clockContainer.querySelector("h2");
 
 function getTime(){
     const date = new Date(); 
-    const day = date.getDay
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
     const hours = date.getHours();
     const minutes = date.getMinutes();
+    dayTitle.innerText = `${year} - ${month < 10 ? `0${month}` : month} - ${day < 10 ? `0${day}` : day}`;
     clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours} : ${minutes < 10 ? `0${minutes}` : minutes}`;
 }
 

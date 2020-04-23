@@ -9,9 +9,10 @@ ul, li{
 
 body{
     background-color: #000000;
-    color: #ffffff; 
+    color: #ffffff; line-height: 1;
     font-family: 'Baloo Bhaina 2', 'Nanum Gothic', sans-serif;
 }
+
 
 .js-container{
     position: absolute;
@@ -21,7 +22,12 @@ body{
 }
 
 .js-clock h1{
-    font-size: 10em;
+    margin-bottom: 15px;
+    font-size: 2.5em;
+}
+
+.js-clock h2{
+    font-size: 8em;
 }
 
 h1{
@@ -48,6 +54,7 @@ form input{
     border: 0; border-bottom: 3px solid #ffffff;
     text-align: center;
     color: #ffffff; font-size: 2.5em;
+    font-family: 'Baloo Bhaina 2', 'Nanum Gothic', sans-serif;
 }
 input::-webkit-input-placeholder{
     color: #ffffff;
@@ -57,11 +64,11 @@ input:-ms-input-placeholder{
 }
 
 .js-toDoForm{
-    margin-top: 70px;
+    margin-top: 55px;
 }
 
 .js-greeting{
-    margin-top: -50px;
+    margin-top: 80px;
     font-size: 2.5em;;
 }
 
