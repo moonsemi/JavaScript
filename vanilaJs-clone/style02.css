@@ -30,19 +30,6 @@ body{
     font-size: 8em;
 }
 
-h1{
-    /* color: #ffffff; */
-    transition: all 0.3s ease-in-out;
-}
-
-.btn{
-    cursor: pointer;
-}
-
-.clicked{
-    color: #0000ff;
-}
-
 .form, .greeting{
     display: none;
 }

@@ -9,7 +9,11 @@ function deleteToDo(e){
     const btn = e.target;
     const li = btn.parentNode;
     toDoList.removeChild(li);
-    const cleanToDos = toDos.filter(function(toDo){
+    // const cleanToDos = toDos.filter(function(toDo){
+    //     return toDo.id !== parseInt(li.id);
+    // });
+    // 화살표함수로 표현!
+    const cleanToDos = toDos.filter((toDo) => {
         return toDo.id !== parseInt(li.id);
     });
     toDos = cleanToDos;
@@ -55,6 +59,7 @@ function handleSubmit(e){
     const currentValue = toDoInput.value;
     paintToDo(currentValue);
     // 엔터 누르면 input 안 초기화
+
     toDoInput.value = "";
 };
 
