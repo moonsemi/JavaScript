@@ -7,13 +7,28 @@
 </head>
 <body>
     <h1><a href="index.html">WEB</a></h1>
-    <input type="button" value="Night" onclick="
+    <!-- <input type="button" value="Night" onclick="
         document.querySelector('body').style.backgroundColor = 'black';
         document.querySelector('body').style.color = 'white';
     ">
     <input type="button" value="Day" onclick="
         document.querySelector('body').style.backgroundColor = 'white';
         document.querySelector('body').style.color = 'black';
+    "> -->
+    
+    <!-- 리팩토리 중요
+    중복의 제거 -> 변수, this 사용 -->
+    <input type="button" value="Night" onclick="
+        let target = document.querySelector('body');
+        if(this.value === 'Night'){
+            target.style.backgroundColor = 'black';
+            target.style.color = 'white';
+            this.value = 'Day';
+        } else{
+           target.style.backgroundColor = 'white';
+           target.style.color = 'black';
+           this.value = 'Night';
+        }
     ">
 
     <ol>
