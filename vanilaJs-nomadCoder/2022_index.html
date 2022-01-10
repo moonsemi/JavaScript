@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple js function</title>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <!-- ReactDOM -> html로 만들어 배치 -->
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script> 
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<!-- 리액트와 친해지기 step1! 완벽히 이해했다라기보다는 조금씩 리액트와 친해지는 느낌..
+리액트의 가장 큰 포인트 -> 효율적인 컴포넌트 관리 / 재사용(리팩토링..?) --> 
+<script>
+    const root = document.getElementById('root');
+    const h3 = React.createElement(
+        'h3', 
+        {
+            onMouseEnter: () => console.log("mouse enter"),
+        },
+        "Hello I'm a span"
+    );
+    const btn = React.createElement(
+        'button', 
+        {
+            onClick: () => console.log("I'm clicked"),
+        },
+        "Click me"
+    );
+    const container = React.createElement('div', null, [h3, btn]);
+    ReactDOM.render(container, root);
+</script>
+</html>

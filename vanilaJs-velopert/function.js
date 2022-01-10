@@ -63,3 +63,4 @@ const hello2 = name => {
     console.log(`Hello, ${name}!`);
 };
 hello2("semi");
+
