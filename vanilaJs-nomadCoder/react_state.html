@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple js function</title>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <!-- ReactDOM -> html로 만들어 배치 -->
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script> 
+    <!-- Babel -> JSX 변환기 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>    
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<!-- 리액트와 친해지기 step1! 완벽히 이해했다라기보다는 조금씩 리액트와 친해지는 느낌..
+리액트의 가장 큰 포인트 -> 효율적인 컴포넌트 관리 / 재사용(리팩토링..?) --> 
+<script type="text/babel"> 
+    const root = document.getElementById('root');
+    // let counter = 0;
+    // function counterUp(){
+    //     counter = counter + 1;
+    //     render();
+    // };
+    // function render(){
+    //     ReactDOM.render(<App/>, root);
+    // };
+    // const Container = () => (
+    //     <div>
+    //         <h3>Total clicks: {counter}</h3>
+    //         <button onClick={counterUp}>Click me</button>
+    //     </div>
+    // )
+    // render();
+
+    // 상수 -> 변하는 변수는 let으로 정의하자
+    // const App = () => (
+    //     // 바뀔 데이터 => 변수명 앞에 set붙히기
+    //     const [counter, setCounter] = React.useState(0);
+    //     <div>
+    //         <h3>Total clicks: {counter}</h3>
+    //         <button>Click me onClick={onClick}</button>
+    //     </div>
+    // )
+    function App(){
+        const [counter, setCounter] = React.useState(0);
+        const onClick = () => {
+            setCounter(counter+1);
+        };
+       return(
+            <div>
+                <h3>Total clicks: {counter}</h3>
+                <button onClick={onClick}>Click me</button>
+            </div>
+       );
+    };
+    ReactDOM.render(<App/>, root);
+    // render();
+</script>
+</html>
