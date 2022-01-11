@@ -8,29 +8,50 @@
     <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
     <!-- ReactDOM -> html로 만들어 배치 -->
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script> 
+    <!-- Babel -> JSX 변환기 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>    
 </head>
 <body>
     <div id="root"></div>
 </body>
 <!-- 리액트와 친해지기 step1! 완벽히 이해했다라기보다는 조금씩 리액트와 친해지는 느낌..
 리액트의 가장 큰 포인트 -> 효율적인 컴포넌트 관리 / 재사용(리팩토링..?) --> 
-<script>
+<script type="text/babel"> 
     const root = document.getElementById('root');
-    const h3 = React.createElement(
-        'h3', 
-        {
-            onMouseEnter: () => console.log("mouse enter"),
-        },
-        "Hello I'm a span"
+    // const h3 = React.createElement(
+    //     'h3', 
+    //     {
+    //         onMouseEnter: () => console.log("mouse enter"),
+    //     },
+    //     "Hello I'm a span"
+    // );
+    // JSX문법 -> 편리할 수 밖에..
+    const Title = () => (
+        <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+            Hello I'm a span
+        </h3>
     );
-    const btn = React.createElement(
-        'button', 
-        {
-            onClick: () => console.log("I'm clicked"),
-        },
-        "Click me"
+    // const btn = React.createElement(
+    //     'button', 
+    //     {
+    //         onClick: () => console.log("I'm clicked"),
+    //     },
+    //     "Click me"
+    // );
+    const Button = () => (
+        <button id="btn" onClick={() => console.log("I'm clicked")}>
+            Click me   
+        </button>
     );
-    const container = React.createElement('div', null, [h3, btn]);
-    ReactDOM.render(container, root);
+    // const container = React.createElement('div', null, [Title, Button]);
+    // componet명 첫긇자 무조건 대문자 / 아니면 테그랑 헷갈릴 수 있음
+    const Container = () => (
+        <div>
+            <Title/>
+            <Button/>    
+        </div>
+        // 리액트 작업방식 -> 컴포넌트 생성 -> 랜더링
+    )
+    ReactDOM.render(<Container/>, root);
 </script>
 </html>
