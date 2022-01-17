@@ -20,13 +20,18 @@
     function App(){
         // JSX : 자바스크립트의 확장 문법, 리액트에서 생김새를 정의할 때 사용하는 문법
         // useState -> Araay []를 사용함(초기값,변경값) 
-        const [minutes, setMinutes] = React.useState();
+        const [amount, setAmount] = React.useState();
+        const [flipped, setFlipped] = React.useState(false);
         // event 항목 안에서 원하는 것 찾기! -> console.log 활용! ex)event.target.value
         const onChange = (event) => {
-            setMinutes(event.target.value);            
+            setAmount(event.target.value);            
         };
         const reset = () => {
-            setMinutes(0);
+            setAmount(0);
+        };
+        const onFlip = () => {
+            reset();
+            setFlipped((current) => !current);
         };
        return(           
             <div>
@@ -34,22 +39,27 @@
                 <div>
                     <label htmlFor="minutes">Minutes</label>
                     <input 
-                        value ={minutes}
+                    // 삼항연산자(ternary operator) => ?(if) :(else)
+                        value ={flipped ? amount * 60 : amount}
                         id ="minutes"
                         placeholder="Minutes"
                         onChange = {onChange} 
+                        // disabled =>  비활성화
+                        disabled = {flipped}
                         type="number"/>
                 </div>
                 <div>
                     <label htmlFor="hours">Hours</label>
                     <input 
-                        // value ={minutes / 60}
-                        value = {Math.round(minutes/60)}
+                        value ={flipped ? amount : Math.round(amount / 60)}
                         id ="hours"
                         placeholder="Hours" 
+                        disabled = {!flipped}
+                        onChange = {onChange} 
                         type="number"/>
                 </div>
                 <button onClick={reset}>Reset</button>
+                <button onClick={onFlip}>Flip</button>
             </div>
        );
     };
