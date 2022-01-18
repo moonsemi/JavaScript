@@ -17,7 +17,7 @@
 <script type="text/babel"> 
     const root = document.getElementById('root');
 
-    function App(){
+    function MinuteToHour(){
         // JSX : 자바스크립트의 확장 문법, 리액트에서 생김새를 정의할 때 사용하는 문법
         // useState -> Araay []를 사용함(초기값,변경값) 
         const [amount, setAmount] = React.useState();
@@ -35,7 +35,6 @@
         };
        return(           
             <div>
-                <h1>Super converter</h1>
                 <div>
                     <label htmlFor="minutes">Minutes</label>
                     <input 
@@ -44,7 +43,7 @@
                         id ="minutes"
                         placeholder="Minutes"
                         onChange = {onChange} 
-                        // disabled =>  비활성화
+                        // disabled =>  비활성화 <-> enable
                         disabled = {flipped}
                         type="number"/>
                 </div>
@@ -59,9 +58,75 @@
                         type="number"/>
                 </div>
                 <button onClick={reset}>Reset</button>
-                <button onClick={onFlip}>Flip</button>
+                <button onClick={onFlip}>{flipped ? "Turn back" : "Flip"}</button>
             </div>
        );
+    };
+
+    function KmToMiles(){
+        const[amount, setAmount] = React.useState(0);
+        const[flipped, setFlipped] = React.useState(false);
+        const onChange = (event) => {
+            setAmount(event.target.value);
+        };
+        const reset = () => {
+            setAmount(0);
+        };
+        const onFlip = () => {
+            reset();
+            setFlipped((current) => !current);
+        };
+        return(
+            <div>
+                <div>
+                    <label htmlFor="km">Km</label>
+                    <input 
+                    // 삼항연산자(ternary operator) => ?(if) :(else)
+                        value ={flipped ? amount * 1.609 : amount}
+                        id ="km"
+                        placeholder="Km"
+                        onChange = {onChange} 
+                        // disabled =>  비활성화 <-> enable
+                        disabled = {flipped}
+                        type="number"/>
+                </div>
+                <div>
+                    <label htmlFor="miles">Miles</label>
+                    <input 
+                        value ={flipped ? amount : amount / 1.609}
+                        id ="miles"
+                        placeholder="Miles" 
+                        disabled = {!flipped}
+                        onChange = {onChange} 
+                        type="number"/>
+                </div>
+                <button onClick={reset}>Reset</button>
+                <button onClick={onFlip}>{flipped ? "Turn back" : "Flip"}</button>
+            </div>
+        ); 
+        
+    };
+    // 컵포넌트들 분할해서 조립!
+    function App(){
+        // useState -> array [] 를 제공한다.   
+        const [index, setIndex] = React.useState("0");
+        const onSelect = (event) => {
+            setIndex(event.target.value); 
+        };
+        // state 연습! : state가 변화되면(modifier) return 부분 데이터와 함께 다시 실행!! 
+        return(
+            <div>
+                <h1>Super converter</h1>
+                <select value={index} onChange={onSelect}>
+                    <option value="0">Minutes & Hours</option>
+                    <option value="1">Km & Miles</option>
+                </select>
+                <hr/>
+                {index === "0" ? <MinuteToHour/> : null}
+                {index === "1" ? <KmToMiles/> : null}
+            </div>
+            // {} -> 자바스크립트 서술할 때 사용!  / {} 안쓰면 기냥 텍스트!!
+        );
     };
     ReactDOM.render(<App/>, root);
     // render();
